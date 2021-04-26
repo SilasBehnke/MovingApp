@@ -1,1 +1,2 @@
-# curly-funicular
+# Moving App
+Moving app is built in 4 different parts. The first part is the Model, where all the data is handled. The Second is the ViewModel where the model and View are intergrated. This Happens in the last step and is incorporated into the final project. The Third step is the View, where users can provide input. The fourth part is a trial where the View and Model are built right into one project. This allows me to draw code from one of the 3 beginning files and test it while I build the app.
