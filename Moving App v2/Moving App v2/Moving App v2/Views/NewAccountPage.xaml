@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Moving_App_v2.Views.NewAccountPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#2F2F2F">
+            <ContentView BackgroundColor="#088004" Padding="30,30,30,30">
+                <Label 
+                    Text="Create New Account"
+                    TextColor="#181818"  
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    FontSize="30"
+                    />
+            </ContentView>
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout Padding="20,10,20,10" BackgroundColor="#044A02">
+                            <Label 
+                            Text="Username"
+                            FontSize="20"
+                            />
+                        <ContentView Padding="20,0,20,10">
+                            <Entry x:Name="UsernameEntry"
+                            IsSpellCheckEnabled="False" 
+                            IsTextPredictionEnabled="False"
+                            Placeholder="Enter New Username"/>
+                        </ContentView>
+                    </StackLayout>
+
+                    <StackLayout Padding="20,10,20,10" BackgroundColor="#044A02">
+                        <Label 
+                            Text="Password"
+                            FontSize="20"
+                            />
+                        <ContentView Padding="20,0,20,10">
+                            <Entry x:Name="PasswordCreateEntry"
+                            IsSpellCheckEnabled="False" 
+                            IsTextPredictionEnabled="False"
+                            IsPassword="True"
+                            Placeholder="Create New Password"/>
+                        </ContentView>
+                        <ContentView Padding="20,0,20,10">
+                            <Entry x:Name="PasswordCheckEntry"
+                            IsSpellCheckEnabled="False" 
+                            IsTextPredictionEnabled="False"
+                            IsPassword="True"
+                            Placeholder="Confirm Password"
+                            TextChanged="PasswordCheckEntry_TextChanged"       />
+                        </ContentView>
+                    </StackLayout>
+                    <ContentView Padding="10,10,10,0">
+                        <Label x:Name="ErrorMessages"
+                            Text="Username exists. Try a different username or try to login with that username." 
+                            TextColor="LawnGreen"/>
+                    </ContentView>
+                    <ContentView Padding="75,30,75,0">
+                        <Button Text="Create" BackgroundColor="#088004"/>
+                    </ContentView>
+                    
+                </StackLayout>
+            </ScrollView>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Moving_App_v2.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#2F2F2F">
+                    <ContentView BackgroundColor="#088004" Padding="40,40,40,40">
+                        <Label 
+                    Text="Moving App" 
+                    FontSize="50" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"
+                    TextColor="#181818"></Label>
+                    </ContentView>
+                    <ContentView Padding="0,100,0,0">
+                        <Entry x:Name="UsernameEntry" 
+                   Placeholder="Username" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   BackgroundColor="Gray" PlaceholderColor="#2F2F2F"
+                   TextColor="Black" WidthRequest="300"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"></Entry>
+                    </ContentView>
+                    <ContentView Padding="0,40,0,0">
+                        <Entry x:Name="PasswordEntry" 
+                   Placeholder="Password" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
+                   BackgroundColor="Gray" 
+                   PlaceholderColor="#2F2F2F"
+                   TextColor="Black" 
+                   WidthRequest="300" 
+                   IsSpellCheckEnabled="False" 
+                   IsTextPredictionEnabled="False" 
+                   IsPassword="true"></Entry>
+                    </ContentView>
+                    <ContentView Padding="75,50,75,0">
+                        <Button 
+                    Text="Login"
+                    BackgroundColor="#088004"
+                    ></Button>
+                    </ContentView>
+                    <ContentView Padding="0,50,0,0">
+                        <Button 
+                    Text="Create New Account"
+                    BackgroundColor="#044A02"
+                    Clicked="NewAcc_Clicked"></Button>
+                    </ContentView>
+
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
