@@ -43,7 +43,7 @@ namespace Moving_App_Web_API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Moving_App_Web_API v1"));
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Moving_App_Web_API v1"));
             }
 
             app.UseHttpsRedirection();

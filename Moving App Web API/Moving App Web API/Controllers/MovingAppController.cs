@@ -1,87 +1,78 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Moving_App_Web_API.Controllers
 {
-    public class MovingAppController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class MovingAppController : ControllerBase
     {
-        // GET: MovingAppController
-        public ActionResult Index()
-        {
-            return View();
-        }
+        List<string> Username;
 
-        // GET: MovingAppController/Details/5
-        public ActionResult Details(int id)
+        private readonly ILogger<MovingAppController> _logger;
+        public MovingAppController(ILogger<MovingAppController> logger)
         {
-            return View();
+            _logger = logger;
+            Username = new List<string>();
         }
-
-        // GET: MovingAppController/Create
-        public ActionResult Create()
+        [HttpGet]
+        public bool UserCheck(string _username)
         {
-            return View();
-        }
+            bool UsernameExist;
 
-        // POST: MovingAppController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            ServerConnection Connection = new ServerConnection();
+            SqlConnection conn = new SqlConnection(Connection.connString);
+
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT Username FROM Users WHERE Username = @Username");
+            cmd.Parameters.AddWithValue("@Username", _username);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows) UsernameExist = true;
+            else UsernameExist = false;
+
+            /*SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            foreach(DataRow dr in ds.Tables[0].Rows)
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+                Username.Add((string)dr["Username"]);
+            }*/
+
+            conn.Close();
+            return UsernameExist;
         }
 
-        // GET: MovingAppController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        
 
-        // POST: MovingAppController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         // GET: MovingAppController/Delete/5
-        public ActionResult Delete(int id)
+        public void Delete(int id)
         {
-            return View();
+            ServerConnection Connection = new ServerConnection();
+            SqlConnection conn = new SqlConnection(Connection.connString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM ITEMS WHERE ItemID = @ID");
+            cmd.Parameters.AddWithValue("@ID", id);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch { throw new Exception("Error Executing Delete: MovingAppController.cs/84"); }
+            conn.Close();
         }
 
         // POST: MovingAppController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }
