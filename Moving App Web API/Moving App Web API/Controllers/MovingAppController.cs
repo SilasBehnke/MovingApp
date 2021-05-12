@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 
 namespace Moving_App_Web_API.Controllers
 {
+    [Route("/MovingApp/Users")]
     [ApiController]
-    [Route("[controller]")]
+
     public class MovingAppController : ControllerBase
     {
         List<string> Username;
@@ -22,8 +23,15 @@ namespace Moving_App_Web_API.Controllers
             _logger = logger;
             Username = new List<string>();
         }
+
         [HttpGet]
-        public bool UserCheck(string _username)
+        public string GetMovingApp()
+        {
+           return "Users are Here";
+        }
+        
+        [HttpGet("{username}")]
+        public string UserCheck(string username)
         {
             bool UsernameExist;
 
@@ -32,12 +40,12 @@ namespace Moving_App_Web_API.Controllers
 
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT Username FROM Users WHERE Username = @Username");
-            cmd.Parameters.AddWithValue("@Username", _username);
+            SqlCommand cmd = new SqlCommand("SELECT Count(UserID) FROM Users WHERE Username = @Username", conn);
+            cmd.Parameters.AddWithValue("@Username", username);
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-            if (reader.HasRows) UsernameExist = true;
+            if (count != 0) UsernameExist = true;
             else UsernameExist = false;
 
             /*SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -48,14 +56,13 @@ namespace Moving_App_Web_API.Controllers
             {
                 Username.Add((string)dr["Username"]);
             }*/
-
             conn.Close();
-            return UsernameExist;
+            return UsernameExist.ToString();
         }
 
         
 
-
+        [HttpDelete]
         // GET: MovingAppController/Delete/5
         public void Delete(int id)
         {
@@ -70,9 +77,6 @@ namespace Moving_App_Web_API.Controllers
             }
             catch { throw new Exception("Error Executing Delete: MovingAppController.cs/84"); }
             conn.Close();
-        }
-
-        // POST: MovingAppController/Delete/5
-        
+        }        
     }
 }

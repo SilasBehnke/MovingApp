@@ -11,14 +11,11 @@ namespace Moving_App_Web_API
 
         public string connString { get
             {
-                return connString;
+                return conn;
             }
-            set
-            {
-                connString = value;
-            } }
+            set { conn = value; }
+        }
         public ServerConnection() {
-            connString = conn;
                 }
 
     }
