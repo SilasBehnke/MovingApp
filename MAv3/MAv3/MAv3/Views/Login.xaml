@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Moving_App_Form_Version.Views.Login">
+    <ContentPage.Content>
+        <StackLayout>
+            <ContentView Padding="0,40,0,40" BackgroundColor="Green">
+                <Image Source="Logo.png" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+            </ContentView>
+
+            <Grid>
+                <Entry x:Name="UsernameEntry"
+                       Grid.Row="2" 
+                       Placeholder="Username" 
+                       IsSpellCheckEnabled="False" 
+                       IsTextPredictionEnabled="False" 
+                       FontFamily="Bahnschrift" 
+                       
+                      >
+
+                </Entry>
+                
+                <Entry x:Name="PasswordEntry"
+                       Grid.Row="3" 
+                       Placeholder="Password" 
+                       IsPassword="True" 
+                       IsSpellCheckEnabled="False" 
+                       IsTextPredictionEnabled="False" 
+                       FontFamily="Bahnschrift"
+                       
+                       
+                       ></Entry>
+                <Label x:Name="LoginStatus" Text=" "></Label>
+            </Grid>
+            <Button Text="Go!" HorizontalOptions="Center" VerticalOptions="End"></Button>
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
