@@ -7,11 +7,11 @@ namespace MAv3
 {
     public partial class App : Application
     {
+        public int UserID;
         public App()
         {
             InitializeComponent();
-
-            MainPage = new Login();
+            MainPage = new NavigationPage(new Login());
         }
 
         protected override void OnStart()

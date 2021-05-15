@@ -1,25 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Moving_App_Form_Version.Views.Login"
-             NavigationPage.HasNavigationBar="False">
+             x:Class="MAv3.Views.NewAccount">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#2F2F2F">
             <ContentView Padding="0,40,0,40" BackgroundColor="Green">
                 <StackLayout>
-                    <Label Text="Moving About" HorizontalOptions="Center" VerticalOptions="Center" FontSize="50"></Label>
-                    <Label Text="v3" HorizontalOptions="End" FontSize="20" Padding="0,0,100,0"></Label>
+                    <Label Text="Add New Account" HorizontalOptions="Center" VerticalOptions="Center" FontSize="50"></Label>
+                    <Label Text="Pick a memorable Username and Password, then click the (Create New Account) Button"  HorizontalOptions="Center" FontSize="20" Padding="10,0,10,0"></Label>
                 </StackLayout>
             </ContentView>
-            
-                <Grid BackgroundColor="#707070"  Padding="0,20,0,20">
-                
-                  
-                    
+
+            <Grid BackgroundColor="#707070"  Padding="0,20,0,20">
+
+
+
                 <ContentView Grid.Row="0" 
 >
                     <Entry x:Name="UsernameEntry"
-                       Placeholder="Username" 
+                       Placeholder="Create new Username" 
                        IsSpellCheckEnabled="False" 
                        IsTextPredictionEnabled="False" 
                        FontFamily="Bahnschrift" 
@@ -31,30 +30,32 @@
                 <ContentView Grid.Row="1" 
 >
                     <Entry x:Name="PasswordEntry"
-                       Placeholder="Password" 
+                       Placeholder="Create a Password" 
                        IsPassword="True" 
                        IsSpellCheckEnabled="False" 
                        IsTextPredictionEnabled="False" 
                        FontFamily="Bahnschrift"
                        />
                 </ContentView>
-                </Grid>
-            <Label Grid.Row="5" x:Name="LoginStatus" Text=" "/>
+                <ContentView Grid.Row="2" 
+>
+                    <Entry x:Name="PasswordEntryConfirm"
+                       Placeholder="Confirm Password" 
+                       IsPassword="True" 
+                       IsSpellCheckEnabled="False" 
+                       IsTextPredictionEnabled="False" 
+                       FontFamily="Bahnschrift"
+                       Completed="PasswordEntryConfirm_Completed"
+                       />
+                </ContentView>
+            </Grid>
+            <Label Grid.Row="5" x:Name="AccountStatus" Text=" " TextColor="Gray"/>
 
-            <Button 
-                Text="Go!" 
-                HorizontalOptions="Center" 
-                VerticalOptions="End"
-                Clicked="Button_Clicked"/>
             <Button 
                 Text="Create New Account"
                 HorizontalOptions="Center" 
                 VerticalOptions="End"
-                Clicked="Button_Clicked_1"/>
-
-
-
-
+                Clicked="Button_Clicked"/>
 
         </StackLayout>
     </ContentPage.Content>
