@@ -1,4 +1,5 @@
-﻿using Moving_App_Form_Version.Views;
+﻿using MAv3.Views;
+using Moving_App_Form_Version.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,11 +8,11 @@ namespace MAv3
 {
     public partial class App : Application
     {
-        public int UserID;
+        public static string UserID;
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new Login());
+            MainPage = new LocationCreate();
         }
 
         protected override void OnStart()

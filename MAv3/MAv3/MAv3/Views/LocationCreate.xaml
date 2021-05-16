@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAv3.Views.LocationCreate">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#2f2f2f">
+            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <ContentView HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand" Padding="0,10,0,10" BackgroundColor="Green">
+                    <Label Text="Create New Location" FontSize="50" HorizontalTextAlignment="Center"/>
+                </ContentView>
+            </StackLayout>
+            
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <!-- middle controls -->
+                <Grid Padding="20,0,20,0" BackgroundColor="ForestGreen">
+                    <Label HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="Name:" Grid.Column="0" Grid.Row="0"/>
+                    <Entry x:Name="LocationNameEntry" Grid.Column="1" Grid.Row="0"/>
+                    <Label HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="Type (Optional):" Grid.Column="0" Grid.Row="1"/>
+                    <Picker x:Name="LocationPicker" Grid.Row="1" Grid.Column="1"/>
+
+                </Grid>
+                <ContentView Padding="100,50,100,20">
+                    <Button Text="Create!" BackgroundColor="ForestGreen"/>
+                </ContentView>
+
+
+            </StackLayout>
+
+            <StackLayout VerticalOptions="End">
+                <ContentView VerticalOptions="End" BackgroundColor="Green">
+                    <Grid Padding="10,10,10,10">
+                        <Button Grid.Column="0"
+                            Text="List View"/>
+                        <Button Grid.Column="1"
+                            Text="Create"/>
+                        <Button Grid.Column="2"
+                            Text="Search"/>
+                        <Button Grid.Column="3"
+                            Text="Settings"/>
+                    </Grid>
+                </ContentView>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

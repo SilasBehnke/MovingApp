@@ -28,8 +28,8 @@ namespace Moving_App_Form_Version.Views
                 string UserExist = serverCalls.ObjectExist(UsernameEntry.Text, PasswordEntry.Text);
                 if (UserExist.Contains("True"))
                 {
-                    LoginStatus.Text = "Success";
-                    return;
+                    App.UserID = serverCalls.ObjectID(UsernameEntry.Text, PasswordEntry.Text);
+                    Navigation.PushAsync(new CreatePage());
                 }
                 LoginStatus.Text = "Username or Password is incorrect";
             }

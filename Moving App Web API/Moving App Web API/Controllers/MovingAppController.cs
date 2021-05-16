@@ -100,7 +100,31 @@ namespace Moving_App_Web_API.Controllers
 
             return successMessage;
         }
-        
+        [HttpGet("UserID/{username}/{password}")]
+        public string UsernameID(string username, string password)
+        {
+            int UserID = 0;
+            ServerConnection Connection = new ServerConnection();
+            SqlConnection conn = new SqlConnection(Connection.connString);
+
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT UserID FROM Users WHERE Username = @Username and Password = @Password", conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+            cmd.Parameters.AddWithValue("@Password", password);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                UserID = (int) reader["UserID"];
+            }
+            reader.Close();
+            conn.Close();
+
+            if (UserID == 0) return "No User Found";
+
+            return UserID.ToString();
+        }
+
 
         [HttpDelete]
         // GET: MovingAppController/Delete/5

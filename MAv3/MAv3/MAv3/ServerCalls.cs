@@ -16,7 +16,8 @@ namespace MAv3
         }
 
         public abstract string ObjectExist(string Object, string Object2);
-        public abstract string ObjectAdd(string Object, string Object1);
+        public abstract string ObjectAdd(string Object, string Object2);
+        public abstract string ObjectID(string Object, string Object2);
 
     }
     public class UserCall : ServerCalls
@@ -44,6 +45,18 @@ namespace MAv3
             if (Password != null)
              goTo= $"{root}/UserExist/{Username}/{Password}";
             else goTo = $"{root}/UserExist/{Username}";
+            var client = new RestClient(goTo);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Cookie", "ARRAffinity=a7849d6dae65d69222ffaa2af87b40c55ee92550e9f10aab92a25c888276c641; ARRAffinitySameSite=a7849d6dae65d69222ffaa2af87b40c55ee92550e9f10aab92a25c888276c641");
+            request.AddParameter("text/plain", "", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            return response.Content;
+        }
+
+        public override string ObjectID(string Username, string Password)
+        {
+            string goTo = $"{root}/UserID/{Username}/{Password}";
             var client = new RestClient(goTo);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
