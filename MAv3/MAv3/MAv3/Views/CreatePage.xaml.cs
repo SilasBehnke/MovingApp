@@ -16,5 +16,16 @@ namespace MAv3.Views
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e) //Box
+        {
+            Navigation.PushAsync(new BoxCreate());
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e) //Location
+        {
+            Navigation.PushAsync(new LocationCreate());
+
+        }
     }
 }

@@ -1,30 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MAv3.Views.CreatePage"
-             NavigationPage.HasNavigationBar="False">
-              
+             x:Class="MAv3.Views.BoxCreate">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#2f2f2f">
+        <StackLayout BackgroundColor="#2f2f2f">
+            
             <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
-                <!-- top controls -->
+                <!-- Top Controls -->
                 <ContentView HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand" Padding="0,10,0,10" BackgroundColor="Green">
-                    <Label Text="Create New:" FontSize="50" HorizontalTextAlignment="Center"/>
+                    <Label Text="Create New Box" FontSize="50" HorizontalTextAlignment="Center"/>
                 </ContentView>
             </StackLayout>
+
             <StackLayout VerticalOptions="CenterAndExpand">
                 <!-- middle controls -->
+                <Grid Padding="20,0,20,0" BackgroundColor="ForestGreen">
+                    <Label HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="Name:" Grid.Column="0" Grid.Row="0"/>
+                    <Entry x:Name="LocationNameEntry" Grid.Column="1" Grid.Row="0"/>
+                    <Label HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="Type (Optional):" Grid.Column="0" Grid.Row="1"/>
+                    <Picker x:Name="LocationPicker" Grid.Row="1" Grid.Column="1"/>
 
-                <ContentView Padding="100,10,100,10">
-                    <Button BackgroundColor="ForestGreen" Text="Box" Clicked="Button_Clicked"/>
+                </Grid>
+                <ContentView Padding="100,50,100,20">
+                    <Button Text="Create!" BackgroundColor="ForestGreen"/>
                 </ContentView>
-                <ContentView Padding="100,10,100,10">
-                    <Button BackgroundColor="ForestGreen" Text="Location" Clicked="Button_Clicked_1"/>
-                </ContentView>
+
+
             </StackLayout>
-            
+
             <StackLayout VerticalOptions="End">
-                <!-- Bottom Navigation bar -->
                 <ContentView VerticalOptions="End" BackgroundColor="Green">
                     <Grid Padding="10,10,10,10">
                         <Button Grid.Column="0"
@@ -38,6 +42,7 @@
                     </Grid>
                 </ContentView>
             </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

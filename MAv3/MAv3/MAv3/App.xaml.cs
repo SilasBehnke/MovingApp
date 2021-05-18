@@ -12,7 +12,7 @@ namespace MAv3
         public App()
         {
             InitializeComponent();
-            MainPage = new LocationCreate();
+            MainPage = new NavigationPage(new Login());
         }
 
         protected override void OnStart()
