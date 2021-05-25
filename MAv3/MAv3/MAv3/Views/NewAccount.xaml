@@ -6,11 +6,12 @@
         <StackLayout BackgroundColor="#2F2F2F">
             <ContentView Padding="0,40,0,40" BackgroundColor="Green">
                 <StackLayout>
-                    <Label Text="Add New Account" HorizontalOptions="Center" VerticalOptions="Center" FontSize="50"></Label>
-                    <Label Text="Pick a memorable Username and Password, then click the (Create New Account) Button"  HorizontalOptions="Center" FontSize="20" Padding="10,0,10,0"></Label>
+                    <Label Text="Add New Account" HorizontalOptions="Center" VerticalOptions="Center" FontSize="40"></Label>
+                    <Label Text="Pick a memorable Username and Password, then click the (Create New Account) Button"  HorizontalOptions="Center" FontSize="12" Padding="10,0,10,0"></Label>
                 </StackLayout>
             </ContentView>
 
+            <ScrollView>
             <Grid BackgroundColor="#707070"  Padding="0,20,0,20">
 
 
@@ -49,6 +50,7 @@
                        />
                 </ContentView>
             </Grid>
+            </ScrollView>
             <Label Grid.Row="5" x:Name="AccountStatus" Text=" " TextColor="Gray"/>
 
             <Button 

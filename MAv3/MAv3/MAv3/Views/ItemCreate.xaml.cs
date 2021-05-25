@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace MAv3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BoxCreate : ContentPage
+    public partial class ItemCreate : ContentPage
     {
-        public BoxCreate()
+        public ItemCreate()
         {
             InitializeComponent();
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

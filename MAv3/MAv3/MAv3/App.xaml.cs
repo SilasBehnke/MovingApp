@@ -9,6 +9,7 @@ namespace MAv3
     public partial class App : Application
     {
         public static string UserID;
+        public static string ItemName;
         public App()
         {
             InitializeComponent();

@@ -14,12 +14,17 @@
 
             <StackLayout VerticalOptions="CenterAndExpand">
                 <!-- middle controls -->
-                <Grid Padding="20,0,20,0" BackgroundColor="ForestGreen">
+                <Grid Padding="20,0,20,10" BackgroundColor="ForestGreen">
                     <Label HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="Name:" Grid.Column="0" Grid.Row="0"/>
                     <Entry x:Name="LocationNameEntry" Grid.Column="1" Grid.Row="0"/>
-                    <Label HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="Type (Optional):" Grid.Column="0" Grid.Row="1"/>
-                    <Picker x:Name="LocationPicker" Grid.Row="1" Grid.Column="1"/>
-
+                    <Entry x:Name="ItemNameEntry" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Placeholder="Item Name" Grid.Column="0" Grid.Row="1"/>
+                    <Entry HorizontalTextAlignment="End" VerticalTextAlignment="Center" Placeholder="Description" Grid.Column="1" Grid.Row="1"/>
+                    <Button Text="+" Grid.Row="1" Grid.Column="2" Clicked="Button_Clicked" BackgroundColor="Green"/>
+                    <ScrollView >
+                        <StackLayout x:Name="ItemScroll">
+                            
+                        </StackLayout>
+                    </ScrollView>
                 </Grid>
                 <ContentView Padding="100,50,100,20">
                     <Button Text="Create!" BackgroundColor="ForestGreen"/>
